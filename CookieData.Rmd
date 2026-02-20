@@ -1,0 +1,52 @@
+---
+title: "Cookie Data"
+author: "Zach Lees"
+date: "2025-01-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+
+# front-matter
+rm(list = ls()) #clear the workspace
+
+# load the typical libraries
+library(Stat2Data)
+library(tidyverse)
+library(mosaic)
+library(ggformula)
+library(Lock5Data)
+library(tinytex)
+library(readxl)
+library(ggplot2)
+library(car)
+
+data <- read_excel("C:/Users/20lee/Downloads/CookieDataStacked.xlsx")
+
+```
+
+```{r}
+favstats(data$Diameter);
+```
+
+```{r}
+boxplot(data$Diameter, main="Diameter of Cookies in cm", sub="Figure 1: Boxplot of diameter")
+plot(data$Diameter, main="Diameter of Cookies in cm", sub="Figure 1: Plot of diameter")
+
+```
+
+```{r}
+boxplot(Diameter ~ Fat, data=data, main="Diameter of Cookies by Fat in cm", sub="Figure 2: Boxplot of diameter by fat")
+```
+
+```{r}
+model <- aov(Diameter ~ Fat * Flour * ChillTime, data=data)
+AIC(model)
+```
+
