@@ -1,6 +1,6 @@
 # Cookie-Report
 
-Perfomring a study to determine which variables affect the diameter of the cookie the most.
+Performing a study to determine which variables affect the diameter of the cookie the most.
 
 Question 1: Which variables (Fat, Flour, and/or ChillTime) are important for explaining the diameter of the cookies, and in what ways?
 
